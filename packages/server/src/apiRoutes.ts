@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import { AgentManager } from './agentManager';
 
 /**
@@ -8,7 +8,7 @@ export function createApiRoutes(agentManager: AgentManager): Router {
   const router = Router();
 
   // Get all agents
-  router.get('/agents', (req, res) => {
+  router.get('/agents', (req: Request, res: Response) => {
     try {
       const agents = agentManager.getAllAgents();
       res.json({ success: true, data: agents });
@@ -18,9 +18,9 @@ export function createApiRoutes(agentManager: AgentManager): Router {
   });
 
   // Get a specific agent
-  router.get('/agents/:id', (req, res) => {
+  router.get('/agents/:id', (req: Request, res: Response) => {
     try {
-      const agent = agentManager.getAgent(req.params.id);
+      const agent = agentManager.getAgent(req.params.id as string);
       if (!agent) {
         return res.status(404).json({ success: false, error: 'Agent not found' });
       }
@@ -31,9 +31,9 @@ export function createApiRoutes(agentManager: AgentManager): Router {
   });
 
   // Update an agent
-  router.patch('/agents/:id', (req, res) => {
+  router.patch('/agents/:id', (req: Request, res: Response) => {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const updates = req.body;
       agentManager.updateAgent(id, updates);
       const updatedAgent = agentManager.getAgent(id);
@@ -44,13 +44,13 @@ export function createApiRoutes(agentManager: AgentManager): Router {
   });
 
   // Delete an agent
-  router.delete('/agents/:id', (req, res) => {
+  router.delete('/agents/:id', (req: Request, res: Response) => {
     try {
-      const agent = agentManager.getAgent(req.params.id);
+      const agent = agentManager.getAgent(req.params.id as string);
       if (!agent) {
         return res.status(404).json({ success: false, error: 'Agent not found' });
       }
-      agentManager.unregisterAgent(req.params.id);
+      agentManager.unregisterAgent(req.params.id as string);
       res.json({ success: true, message: 'Agent deleted' });
     } catch (error) {
       res.status(500).json({ success: false, error: 'Failed to delete agent' });

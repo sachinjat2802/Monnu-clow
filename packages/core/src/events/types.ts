@@ -27,6 +27,17 @@ export type PipelinePhase =
 
 // --- Core Data Structures ---
 
+export interface Agent {
+    id: string;
+    name: string;
+    role: AgentRole | string;
+    status: AgentStatus;
+    message: string;
+    iterations: number;
+    errors: number;
+    enabled: boolean;
+}
+
 export interface Task {
     id: string;
     title: string;

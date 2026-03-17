@@ -6,6 +6,7 @@
 // Event System
 export { AgentEventEmitter } from './events/emitter.js';
 export type {
+    Agent,
     AgentRole,
     AgentStatus,
     AgentAction,
