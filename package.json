@@ -1,0 +1,31 @@
+{
+  "name": "monnu-clow",
+  "version": "0.1.0",
+  "description": "Autonomous Multi-Agent AI Development System — Self-healing, intelligent code orchestration",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter @monnu-clow/server dev\" \"pnpm --filter @monnu-clow/dashboard dev\"",
+    "dev:server": "pnpm --filter @monnu-clow/server dev",
+    "dev:dashboard": "pnpm --filter @monnu-clow/dashboard dev",
+    "cli": "pnpm --filter @monnu-clow/cli dev",
+    "cli:run": "pnpm --filter @monnu-clow/cli dev -- run",
+    "build": "pnpm -r build",
+    "test": "pnpm --filter @monnu-clow/core test",
+    "test:watch": "pnpm --filter @monnu-clow/core test --watch",
+    "lint": "eslint . --ext .ts,.tsx",
+    "clean": "pnpm -r exec -- rm -rf dist node_modules"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.3.0",
+    "@types/jest": "^30.0.0",
+    "concurrently": "^8.2.2",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.4.0"
+  }
+}
