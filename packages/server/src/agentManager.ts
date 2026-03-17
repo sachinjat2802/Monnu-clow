@@ -1,4 +1,4 @@
-import { Agent } from '../core/types';
+import { Agent } from '@monnu-clow/core';
 
 /**
  * Manages the lifecycle and state of agents
