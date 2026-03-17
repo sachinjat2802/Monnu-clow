@@ -17,6 +17,17 @@ export function createApiRoutes(agentManager: AgentManager): Router {
     }
   });
 
+  // Register an agent
+  router.post('/agents', (req, res) => {
+    try {
+      const agent = req.body;
+      agentManager.registerAgent(agent);
+      res.status(201).json({ success: true, data: agent });
+    } catch (error) {
+      res.status(500).json({ success: false, error: 'Failed to register agent' });
+    }
+  });
+
   // Get a specific agent
   router.get('/agents/:id', (req, res) => {
     try {

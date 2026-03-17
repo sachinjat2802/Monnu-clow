@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1773682063129" clover="3.2.0">
-  <project timestamp="1773682063130" name="All files">
+<coverage generated="1773762772156" clover="3.2.0">
+  <project timestamp="1773762772156" name="All files">
     <metrics statements="852" coveredstatements="546" conditionals="17" coveredconditionals="13" methods="38" coveredmethods="13" elements="907" coveredelements="572" complexity="0" loc="852" ncloc="852" packages="3" files="4" classes="4"/>
     <package name="agents">
       <metrics statements="403" coveredstatements="242" conditionals="10" coveredconditionals="8" methods="20" coveredmethods="8"/>
-      <file name="base-agent.ts" path="D:\Monnu clow\packages\core\src\agents\base-agent.ts">
+      <file name="base-agent.ts" path="/app/packages/core/src/agents/base-agent.ts">
         <metrics statements="246" coveredstatements="170" conditionals="6" coveredconditionals="6" methods="17" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -253,7 +253,7 @@
         <line num="245" count="0" type="stmt"/>
         <line num="246" count="2" type="stmt"/>
       </file>
-      <file name="supervisor.ts" path="D:\Monnu clow\packages\core\src\agents\supervisor.ts">
+      <file name="supervisor.ts" path="/app/packages/core/src/agents/supervisor.ts">
         <metrics statements="157" coveredstatements="72" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -416,7 +416,7 @@
     </package>
     <package name="events">
       <metrics statements="118" coveredstatements="94" conditionals="7" coveredconditionals="5" methods="12" coveredmethods="5"/>
-      <file name="emitter.ts" path="D:\Monnu clow\packages\core\src\events\emitter.ts">
+      <file name="emitter.ts" path="/app/packages/core/src/events/emitter.ts">
         <metrics statements="118" coveredstatements="94" conditionals="7" coveredconditionals="5" methods="12" coveredmethods="5"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -540,7 +540,7 @@
     </package>
     <package name="llm">
       <metrics statements="331" coveredstatements="210" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-      <file name="prompts.ts" path="D:\Monnu clow\packages\core\src\llm\prompts.ts">
+      <file name="prompts.ts" path="/app/packages/core/src/llm/prompts.ts">
         <metrics statements="331" coveredstatements="210" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>

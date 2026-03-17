@@ -1,4 +1,13 @@
-import { Agent } from '../core/types';
+/**
+ * Defines the Agent type locally since it's not exported from core
+ */
+export interface Agent {
+  id: string;
+  role: string;
+  status: string;
+  name?: string;
+  [key: string]: any;
+}
 
 /**
  * Manages the lifecycle and state of agents
