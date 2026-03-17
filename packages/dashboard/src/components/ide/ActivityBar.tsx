@@ -16,12 +16,12 @@ const TOP_ITEMS: { panel: SidebarPanel; icon: React.ReactNode; label: string }[]
     { panel: 'ai-chat', icon: <Bot size={22} />, label: 'AI Copilot' },
 ];
 
-export function ActivityBar() {
+export function ActivityBar({ onBackToDashboard }: { onBackToDashboard?: () => void }) {
     const { sidebarPanel, setSidebarPanel } = useEditorStore();
 
     return (
         <div className="ide-activity-bar" id="activity-bar">
-            <div className="activity-bar-brand" title="Monnu Clow">
+            <div className="activity-bar-brand" title="Monnu Clow" onClick={onBackToDashboard} style={{ cursor: onBackToDashboard ? 'pointer' : 'default' }}>
                 M
             </div>
             <div className="activity-bar-top">

@@ -398,8 +398,8 @@ function FileExplorer({ handleOpenFile }: FileExplorerProps) {
                 <div className="modal-overlay" onClick={() => setIsWorkspaceModalOpen(false)}>
                     <div className="card modal-content modal-body" onClick={e => e.stopPropagation()}>
                         <h3 className="modal-title">Add Workspace Folder</h3>
-                        <input type="text" className="input-field" placeholder="Workspace Name" value={newWorkspaceName} onChange={e => setNewWorkspaceName(e.target.value)} />
-                        <input type="text" className="input-field" placeholder="Relative Path" value={newWorkspacePath} onChange={e => setNewWorkspacePath(e.target.value)} />
+                        <input type="text" aria-label="Workspace Name" className="input-field" placeholder="Workspace Name" value={newWorkspaceName} onChange={e => setNewWorkspaceName(e.target.value)} />
+                        <input type="text" aria-label="Relative Path" className="input-field" placeholder="Relative Path" value={newWorkspacePath} onChange={e => setNewWorkspacePath(e.target.value)} />
                         <div className="modal-footer">
                             <button className="btn btn-primary" onClick={handleAddWorkspace}>Add</button>
                             <button className="btn btn-ghost" onClick={() => setIsWorkspaceModalOpen(false)}>Cancel</button>
@@ -754,7 +754,7 @@ function ExtensionsPanel() {
             <div className="sidebar-section-label">EXTENSIONS</div>
             <div className="extensions-search">
                 <Search size={14} />
-                <input type="text" placeholder="Search extensions..." className="search-input" />
+                <input type="text" aria-label="Search extensions" placeholder="Search extensions..." className="search-input" />
             </div>
             {loading && <div className="p-4 text-xs opacity-50">Loading extensions...</div>}
             <div className="sidebar-section-sublabel">INSTALLED</div>

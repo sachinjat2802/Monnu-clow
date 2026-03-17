@@ -9,7 +9,7 @@ import { useDashboardStore, AgentRole } from '../../stores/dashboard';
 import { useEditorStore } from '../../stores/editor';
 import { Network, Cpu, Bot, ShieldCheck, Zap, Code, Shield, Search } from 'lucide-react';
 
-const ROLE_ICONS: Record<AgentRole, React.ReactNode> = {
+const ROLE_ICONS: Record<string, React.ReactNode> = {
     supervisor: <ShieldCheck size={14} />,
     planner: <Zap size={14} />,
     coder: <Code size={14} />,
@@ -21,6 +21,15 @@ const ROLE_ICONS: Record<AgentRole, React.ReactNode> = {
     'coder-3': <Code size={14} />,
     'tester-1': <Search size={14} />,
     'tester-2': <Search size={14} />,
+    'fullstack-1': <Code size={14} />,
+    'fullstack-2': <Code size={14} />,
+    'fullstack-3': <Code size={14} />,
+    'ba': <Zap size={14} />,
+    'manager': <ShieldCheck size={14} />,
+    'architect': <Zap size={14} />,
+    'senior-dev': <Code size={14} />,
+    'functional-reviewer': <Shield size={14} />,
+    'security': <ShieldCheck size={14} />
 };
 
 interface EditorAreaProps {
