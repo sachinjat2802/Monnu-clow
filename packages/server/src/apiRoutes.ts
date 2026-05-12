@@ -24,29 +24,6 @@ export function createApiRoutes(agentManager: AgentManager): Router {
     try {
       const root = (req.query.root as string) || '.';
       const absoluteRoot = path.resolve(root);
-
-      async function buildTree(dir: string, baseDir: string): Promise<any[]> {
-        const files = await fs.readdir(dir, { withFileTypes: true });
-        const nodes = await Promise.all(
-          files
-            .filter(f => !['node_modules', '.git', 'dist'].includes(f.name))
-            .map(async f => {
-              const fullPath = path.join(dir, f.name);
-              const relativePath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
-              const node: any = {
-                name: f.name,
-                path: relativePath,
-                isDir: f.isDirectory()
-              };
-              if (node.isDir) {
-                node.children = await buildTree(fullPath, baseDir);
-              }
-              return node;
-            })
-        );
-        return nodes;
-      }
-
       const tree = await buildTree(absoluteRoot, absoluteRoot);
       res.json({ success: true, files: tree });
     } catch (error) {
@@ -54,6 +31,28 @@ export function createApiRoutes(agentManager: AgentManager): Router {
       res.status(500).json({ success: false, error: 'Failed to fetch file tree' });
     }
   });
+
+  async function buildTree(dir: string, baseDir: string): Promise<any[]> {
+    const files = await fs.readdir(dir, { withFileTypes: true });
+    const nodes = await Promise.all(
+      files
+        .filter(f => !['node_modules', '.git', 'dist'].includes(f.name))
+        .map(async f => {
+          const fullPath = path.join(dir, f.name);
+          const relativePath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
+          const node: any = {
+            name: f.name,
+            path: relativePath,
+            isDir: f.isDirectory()
+          };
+          if (node.isDir) {
+            node.children = await buildTree(fullPath, baseDir);
+          }
+          return node;
+        })
+    );
+    return nodes;
+  }
 
   // Get file content
   router.get('/files/content', async (req: Request, res: Response) => {

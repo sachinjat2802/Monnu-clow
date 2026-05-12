@@ -20,13 +20,14 @@ describe('Jest configuration', () => {
 
   test('sets testMatch pattern correctly', () => {
     expect(Array.isArray(config.testMatch)).toBe(true);
-    expect(config.testMatch).toContainEqual("\**/src/**/*.test.?([mc])[jt]s?(x)");
+    expect(config.testMatch).toContainEqual("**/src/**/*.test.?([mc])[jt]s?(x)");
   });
 
   test('excludes node_modules and dist in testPathIgnorePatterns', () => {
     expect(Array.isArray(config.testPathIgnorePatterns)).toBe(true);
-    expect(config.testPathIgnorePatterns).toContainEqual(\"\\\\node_modules\\\\\");
-    expect(config.testPathIgnorePatterns).toContainEqual(\"\\\\dist\\\\\");
+    expect(config.testPathIgnorePatterns).toContainEqual('\\\\node_modules\\\\');
+    expect(config.testPathIgnorePatterns).toContainEqual('\\\\dist\\\\');
+  });
   });
 
   test('configures transform for TypeScript files with ts-jest and ESM', () => {

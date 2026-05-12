@@ -1,5 +1,5 @@
 TN:
-SF:src/agents/base-agent.ts
+SF:src\agents\base-agent.ts
 FN:31,<instance_members_initializer>
 FN:42,BaseAgent
 FN:54,setLLM
@@ -294,7 +294,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:src/agents/supervisor.ts
+SF:src\agents\supervisor.ts
 FN:30,SupervisorAgent
 FN:44,performWork
 FN:106,executeDecisions
@@ -470,7 +470,7 @@ BRF:4
 BRH:2
 end_of_record
 TN:
-SF:src/events/emitter.ts
+SF:src\events\emitter.ts
 FN:9,<instance_members_initializer>
 FN:14,AgentEventEmitter
 FN:21,emit
@@ -628,7 +628,7 @@ BRF:7
 BRH:5
 end_of_record
 TN:
-SF:src/llm/prompts.ts
+SF:src\llm\prompts.ts
 FN:191,buildPlannerPrompt
 FN:213,buildCoderPrompt
 FN:236,buildTesterPrompt
