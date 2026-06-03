@@ -19,6 +19,7 @@ import { CoderAgent } from '../agents/coder.js';
 import { TesterAgent } from '../agents/tester.js';
 import { DebuggerAgent } from '../agents/debugger.js';
 import { ReviewerAgent } from '../agents/reviewer.js';
+import { MCPAgent } from '../agents/mcp.js';
 import { SupervisorAgent } from '../agents/supervisor.js';
 import { BaseLLMProvider } from '../llm/provider.js';
 import { createLLMFromEnv, isLLMConfigured } from '../llm/factory.js';
@@ -53,6 +54,7 @@ export class PipelineExecutor {
     private tester: TesterAgent;
     private debugger_: DebuggerAgent;
     private reviewer: ReviewerAgent;
+    private mcp: MCPAgent;
     private supervisor: SupervisorAgent;
 
     // Tracking
@@ -99,6 +101,7 @@ export class PipelineExecutor {
         this.tester = new TesterAgent(this.events, llm);
         this.debugger_ = new DebuggerAgent(this.events, llm);
         this.reviewer = new ReviewerAgent(this.events, llm);
+        this.mcp = new MCPAgent(this.events, llm);
         this.supervisor = new SupervisorAgent(this.events, llm);
 
         // Listen for agent status changes to keep shared memory synced
@@ -226,6 +229,10 @@ export class PipelineExecutor {
         // Phase 1.5: Supervising
         this.setPhase('supervising', 'supervisor');
         await this.supervisor.execute(this.createContext());
+
+        // Phase 1.8: MCP Integration
+        this.setPhase('mcping', 'mcp');
+        await this.mcp.execute(this.createContext());
 
         // Phase 2: Coding
         this.setPhase('coding', 'coder');

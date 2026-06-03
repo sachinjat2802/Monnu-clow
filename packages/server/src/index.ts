@@ -50,6 +50,7 @@ if (agentsDict.tester) agentManager.registerAgent(agentsDict.tester);
 if (agentsDict.debugger_) agentManager.registerAgent(agentsDict.debugger_);
 if (agentsDict.reviewer) agentManager.registerAgent(agentsDict.reviewer);
 if (agentsDict.supervisor) agentManager.registerAgent(agentsDict.supervisor);
+if (agentsDict.mcp) agentManager.registerAgent(agentsDict.mcp);
 
 // Initialize API routes
 const apiRouter = createApiRoutes(agentManager);
