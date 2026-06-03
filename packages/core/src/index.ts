@@ -35,6 +35,7 @@ export { CoderAgent } from './agents/coder.js';
 export { TesterAgent } from './agents/tester.js';
 export { DebuggerAgent } from './agents/debugger.js';
 export { ReviewerAgent } from './agents/reviewer.js';
+export { MCPAgent } from './agents/mcp.js';
 
 // Pipeline
 export { PipelineExecutor } from './pipeline/executor.js';

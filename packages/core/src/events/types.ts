@@ -3,7 +3,7 @@
 // Real-time event types for agent communication and dashboard streaming
 // ============================================================================
 
-export type AgentRole = 'planner' | 'coder' | 'tester' | 'debugger' | 'reviewer' | 'supervisor';
+export type AgentRole = 'planner' | 'coder' | 'tester' | 'debugger' | 'reviewer' | 'supervisor' | 'mcp';
 
 export type AgentStatus = 'idle' | 'working' | 'completed' | 'failed' | 'waiting';
 
@@ -17,6 +17,7 @@ export type PipelinePhase =
     | 'analyzing'
     | 'planning'
     | 'supervising'
+    | 'mcping'
     | 'coding'
     | 'testing'
     | 'debugging'
